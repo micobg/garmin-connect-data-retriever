@@ -23,3 +23,7 @@ Retrieve data from Garmin Connect and store it in a MySQL database.
     COOKIE=
     ```
 3. Run `run.py`.
+
+
+## Grafana dashboards
+`dashboards` directory contains Grafana dashboards that can be imported to visualize the data. The datasource and database name is hardcoded there and needs to be changed to match your setup.
