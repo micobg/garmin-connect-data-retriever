@@ -1,0 +1,1463 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 2,
+  "id": 3,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 140
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MIN(wellness_min_avg_hr)"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Минимален"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MAX(wellness_max_avg_hr)"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Максимален"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.0.0-preview",
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT MIN(wellness_min_avg_hr), date FROM biathlon_training.heart_rate LIMIT 1 ",
+          "refId": "min_hr",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "weight",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 1,
+            "orderBy": {
+              "property": {
+                "name": "date",
+                "type": "string"
+              },
+              "type": "property"
+            },
+            "orderByDirection": "DESC"
+          },
+          "table": "weight"
+        },
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT MAX(wellness_max_avg_hr), date FROM biathlon_training.heart_rate LIMIT 1 ",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "weight",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 1,
+            "orderBy": {
+              "property": {
+                "name": "date",
+                "type": "string"
+              },
+              "type": "property"
+            },
+            "orderByDirection": "DESC"
+          },
+          "table": "weight"
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 23,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": 259200000,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "moving_avg"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 23
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed",
+                  "seriesBy": "last"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "Пулс в покой (средно седмичен)"
+              },
+              {
+                "id": "custom.lineInterpolation",
+                "value": "smooth"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "data"
+            },
+            "properties": [
+              {
+                "id": "custom.lineInterpolation",
+                "value": "smooth"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "none"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#464646",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "Пулс в покой за деня"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 20,
+        "x": 4,
+        "y": 0
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "timezone": [
+          "browser"
+        ],
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT \n  CAST(DATE_FORMAT(date, '%Y-%m-%d 00:00:00') AS DATE) AS day,\n  resting_hr\nFROM biathlon_training.heart_rate\nORDER BY date DESC;",
+          "refId": "data",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "date",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "weight",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "orderBy": {
+              "property": {
+                "name": "date",
+                "type": "string"
+              },
+              "type": "property"
+            },
+            "orderByDirection": "DESC"
+          },
+          "table": "weight"
+        },
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CAST(DATE_FORMAT(date, '%Y-%m-%d 00:00:00') AS DATE) AS day,\n  ROUND(AVG(resting_hr) OVER (ORDER BY date ROWS BETWEEN 7 PRECEDING AND CURRENT ROW), 0) AS smoothed_weight\nFROM\n  biathlon_training.heart_rate\nORDER BY date ASC;",
+          "refId": "moving_avg",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Пулс (в покой)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "Среднен пулс при покой през последните 3 дни в сравнение със предходните две седмици.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 2,
+          "min": -2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "semi-dark-green",
+                "value": -1.5
+              },
+              {
+                "color": "green",
+                "value": -1
+              },
+              {
+                "color": "light-green",
+                "value": -0.5
+              },
+              {
+                "color": "super-light-green",
+                "value": 0.5
+              },
+              {
+                "color": "super-light-orange",
+                "value": 1
+              },
+              {
+                "color": "orange",
+                "value": 1.5
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 3
+      },
+      "id": 13,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.0.0-preview",
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": true,
+          "rawQuery": true,
+          "rawSql": "SELECT AVG(resting_hr) as avg_resting_hr\nFROM biathlon_training.heart_rate \nWHERE date >= NOW() - INTERVAL 14 DAY\n  AND date < NOW() - INTERVAL 3 DAY;",
+          "refId": "previous_2_weeks",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": true,
+          "rawQuery": true,
+          "rawSql": "SELECT AVG(resting_hr) as avg_resting_hr\nFROM biathlon_training.heart_rate \nWHERE date >= NOW() - INTERVAL 3 DAY;",
+          "refId": "last_3_days",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        {
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "$last_3_days - $previous_2_weeks",
+          "hide": false,
+          "refId": "A",
+          "type": "math"
+        }
+      ],
+      "title": "Промяна",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 23,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": 604800000,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "min_moving_avg"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 23
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed",
+                  "seriesBy": "last"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "Минимален пулс (средно за деня)"
+              },
+              {
+                "id": "custom.lineInterpolation",
+                "value": "smooth"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "max_moving_avg"
+            },
+            "properties": [
+              {
+                "id": "custom.lineInterpolation",
+                "value": "smooth"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "none"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "Максимален пулс (средно за деня)"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "timezone": [
+          "browser"
+        ],
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CAST(DATE_FORMAT(date, '%Y-%m-%d 00:00:00') AS DATE) AS day,\n  ROUND(AVG(wellness_max_avg_hr) OVER (ORDER BY date ROWS BETWEEN 7 PRECEDING AND CURRENT ROW), 0) AS smoothed_weight\nFROM\n  biathlon_training.heart_rate\nORDER BY date ASC;",
+          "refId": "max_moving_avg",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CAST(DATE_FORMAT(date, '%Y-%m-%d 00:00:00') AS DATE) AS day,\n  ROUND(AVG(wellness_min_avg_hr) OVER (ORDER BY date ROWS BETWEEN 7 PRECEDING AND CURRENT ROW), 0) AS smoothed_weight\nFROM\n  biathlon_training.heart_rate\nORDER BY date ASC;",
+          "refId": "min_moving_avg",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Минимален и максимален пулс",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-orange",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "2020": {
+                  "index": 0,
+                  "text": "2020"
+                },
+                "2021": {
+                  "index": 1,
+                  "text": "2021"
+                },
+                "2022": {
+                  "index": 2,
+                  "text": "2022"
+                },
+                "2023": {
+                  "index": 3,
+                  "text": "2023"
+                },
+                "2024": {
+                  "index": 4,
+                  "text": "2024"
+                },
+                "2025": {
+                  "index": 5,
+                  "text": "2025"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "max": 52,
+          "min": 42,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "dark-green",
+                "value": 43
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 45
+              },
+              {
+                "color": "light-green",
+                "value": 47
+              },
+              {
+                "color": "super-light-green",
+                "value": 49
+              },
+              {
+                "color": "super-light-orange",
+                "value": 51
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "avg_resting_hr"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Среден пулс в покой"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 11,
+        "x": 0,
+        "y": 20
+      },
+      "id": 5,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "colorByField": "avg_resting_hr",
+        "fullHighlight": true,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "year",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.0.0-preview",
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  DATE_FORMAT(date, '%Y') AS year,  -- Extract year and month from the date\n  AVG(resting_hr) AS avg_resting_hr              -- Calculate average weight for each month\nFROM\n  biathlon_training.heart_rate\nWHERE\n  date BETWEEN $__timeFrom() AND $__timeTo()\nGROUP BY year                           -- Group by the extracted month\nORDER BY year;",
+          "refId": "B",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "date",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "weight",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "orderBy": {
+              "property": {
+                "type": "string"
+              },
+              "type": "property"
+            }
+          },
+          "table": "weight"
+        }
+      ],
+      "title": "Среден пулс в покой по година",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-orange",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "10": {
+                  "index": 9,
+                  "text": "Октомври"
+                },
+                "11": {
+                  "index": 10,
+                  "text": "Ноември"
+                },
+                "12": {
+                  "index": 11,
+                  "text": "Декември"
+                },
+                "01": {
+                  "index": 0,
+                  "text": "Януари"
+                },
+                "02": {
+                  "index": 1,
+                  "text": "Февруари"
+                },
+                "03": {
+                  "index": 2,
+                  "text": "Март"
+                },
+                "04": {
+                  "index": 3,
+                  "text": "Април"
+                },
+                "05": {
+                  "index": 4,
+                  "text": "Май"
+                },
+                "06": {
+                  "index": 5,
+                  "text": "Юни"
+                },
+                "07": {
+                  "index": 6,
+                  "text": "Юли"
+                },
+                "08": {
+                  "index": 7,
+                  "text": "Август"
+                },
+                "09": {
+                  "index": 8,
+                  "text": "Септември"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "max": 52,
+          "min": 42,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "dark-green",
+                "value": 43
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 45
+              },
+              {
+                "color": "light-green",
+                "value": 47
+              },
+              {
+                "color": "super-light-green",
+                "value": 49
+              },
+              {
+                "color": "super-light-orange",
+                "value": 51
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "avg_resting_hr"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Среден пулс в покой"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 13,
+        "x": 11,
+        "y": 20
+      },
+      "id": 6,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "colorByField": "avg_resting_hr",
+        "fullHighlight": true,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "vertical",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "month",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.0.0-preview",
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  DATE_FORMAT(date, '%m') AS month,\n  AVG(resting_hr) AS avg_resting_hr\nFROM\n  biathlon_training.heart_rate\nWHERE\n  date BETWEEN $__timeFrom() AND $__timeTo()\nGROUP BY month\nORDER BY month;",
+          "refId": "B",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "date",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "weight",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "orderBy": {
+              "property": {
+                "type": "string"
+              },
+              "type": "property"
+            }
+          },
+          "table": "weight"
+        }
+      ],
+      "title": "Средeн пулс в покой по месец",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "Колко дни съм бил с определен пулс в покой",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green"
+              },
+              {
+                "color": "dark-green",
+                "value": 43
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 45
+              },
+              {
+                "color": "light-green",
+                "value": 47
+              },
+              {
+                "color": "super-light-green",
+                "value": 49
+              },
+              {
+                "color": "super-light-orange",
+                "value": 51
+              },
+              {
+                "color": "light-orange",
+                "value": 53
+              },
+              {
+                "color": "orange",
+                "value": 55
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 57
+              },
+              {
+                "color": "dark-orange",
+                "value": 59
+              },
+              {
+                "color": "super-light-red",
+                "value": 61
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "date (count)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "d"
+              },
+              {
+                "id": "displayName",
+                "value": "Период"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 7,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "colorByField": "int_resting_hr",
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "int_resting_hr",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.0.0-preview",
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  date,\n  ROUND(resting_hr) AS int_resting_hr\nFROM\n  biathlon_training.heart_rate\nWHERE\n  date BETWEEN $__timeFrom() AND $__timeTo() AND resting_hr IS NOT NULL\nORDER BY int_resting_hr;",
+          "refId": "B",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "date",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "weight",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "orderBy": {
+              "property": {
+                "type": "string"
+              },
+              "type": "property"
+            }
+          },
+          "table": "weight"
+        }
+      ],
+      "title": "Брой дни с даден пулс в покой",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "date": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "int_resting_hr": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "int_weight": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2021-10-06T21:00:00.000Z",
+    "to": "now"
+  },
+  "timeRangeUpdatedDuringEditOrView": false,
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Пулс",
+  "uid": "de7lueg93x24gc",
+  "version": 11,
+  "weekStart": ""
+}

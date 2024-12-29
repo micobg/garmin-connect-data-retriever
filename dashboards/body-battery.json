@@ -1,0 +1,1712 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 2,
+  "id": 4,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "low"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "shades"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "Минимална стойност"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "high"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-green",
+                  "mode": "shades"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "Максимална стойност"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 15,
+      "options": {
+        "displayMode": "lcd",
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "11.0.0-preview",
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n  AVG(low_body_battery) AS low_avg\nFROM biathlon_training.body_battery",
+          "refId": "low",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT \n  AVG(high_body_battery) AS high_avg\nFROM biathlon_training.body_battery",
+          "refId": "high",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Средни стойности на батерията",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "Баланс между останалата наличната енергия на края на деня и нереализирания запас до 100% в началото на деня. ",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": true,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "semi-dark-red",
+                "value": -50
+              },
+              {
+                "color": "red",
+                "value": -30
+              },
+              {
+                "color": "dark-orange",
+                "value": -20
+              },
+              {
+                "color": "orange",
+                "value": -10
+              },
+              {
+                "color": "super-light-green",
+                "value": 0
+              },
+              {
+                "color": "light-green",
+                "value": 10
+              },
+              {
+                "color": "green",
+                "value": 20
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 30
+              },
+              {
+                "color": "dark-green",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "day"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Дата"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "balance"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Баланс"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 20,
+        "x": 4,
+        "y": 0
+      },
+      "id": 11,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 1,
+        "fullHighlight": true,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "vertical",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "multi",
+          "sort": "asc"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 100
+      },
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT \n  CAST(DATE_FORMAT(date, '%Y-%m-%d 00:00:00') AS DATE) AS day,\n  low_body_battery + high_body_battery - 105 AS balance\nFROM biathlon_training.body_battery\nWHERE date BETWEEN $__timeFrom() AND $__timeTo()\nORDER BY date DESC;",
+          "refId": "data",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "date",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "weight",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "orderBy": {
+              "property": {
+                "name": "date",
+                "type": "string"
+              },
+              "type": "property"
+            },
+            "orderByDirection": "DESC"
+          },
+          "table": "weight"
+        },
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": true,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CAST(DATE_FORMAT(date, '%Y-%m-%d 00:00:00') AS DATE) AS day,\n  ROUND(AVG(resting_hr) OVER (ORDER BY date ROWS BETWEEN 7 PRECEDING AND CURRENT ROW), 0) AS smoothed_weight\nFROM\n  biathlon_training.heart_rate\nORDER BY date ASC;",
+          "refId": "moving_avg",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Енергиен баланс",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "Среднен енергиен баланс през последните 3 дни в сравнение със предходните две седмици.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": -100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "semi-dark-red",
+                "value": -50
+              },
+              {
+                "color": "red",
+                "value": -30
+              },
+              {
+                "color": "dark-orange",
+                "value": -20
+              },
+              {
+                "color": "orange",
+                "value": -10
+              },
+              {
+                "color": "super-light-green",
+                "value": 0
+              },
+              {
+                "color": "light-green",
+                "value": 10
+              },
+              {
+                "color": "green",
+                "value": 20
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 30
+              },
+              {
+                "color": "dark-green",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 5
+      },
+      "id": 13,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.0.0-preview",
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": true,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  AVG(low_body_battery + high_body_battery - 105) AS balance\nFROM biathlon_training.body_battery \nWHERE date >= NOW() - INTERVAL 14 DAY\n  AND date < NOW() - INTERVAL 3 DAY;",
+          "refId": "previous_2_weeks",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": true,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  AVG(low_body_battery + high_body_battery - 105) AS balance\nFROM biathlon_training.body_battery \nWHERE date >= NOW() - INTERVAL 3 DAY;",
+          "refId": "last_3_days",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        {
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "$last_3_days - $previous_2_weeks",
+          "hide": false,
+          "refId": "A",
+          "type": "math"
+        }
+      ],
+      "title": "Промяна",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "По ден (усреднена стойност за седмица)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 23,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": 604800000,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "max": 100,
+          "min": 5,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "min_moving_avg"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 23
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed",
+                  "seriesBy": "last"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "Най-ниска стойност (за деня)"
+              },
+              {
+                "id": "custom.lineInterpolation",
+                "value": "smooth"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "max_moving_avg"
+            },
+            "properties": [
+              {
+                "id": "custom.lineInterpolation",
+                "value": "smooth"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "none"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "Най-висока стойност (за деня)"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 6
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "consumption"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    0,
+                    10
+                  ],
+                  "fill": "dot"
+                }
+              },
+              {
+                "id": "displayName",
+                "value": "Енергиен разход"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "timezone": [
+          "browser"
+        ],
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CAST(DATE_FORMAT(date, '%Y-%m-%d 00:00:00') AS DATE) AS day,\n  ROUND(AVG(high_body_battery) OVER (ORDER BY date ROWS BETWEEN 7 PRECEDING AND CURRENT ROW), 0) AS smoothed_weight\nFROM\n  biathlon_training.body_battery\nORDER BY date ASC;",
+          "refId": "max_moving_avg",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CAST(DATE_FORMAT(date, '%Y-%m-%d 00:00:00') AS DATE) AS day,\n  ROUND(AVG(low_body_battery) OVER (ORDER BY date ROWS BETWEEN 7 PRECEDING AND CURRENT ROW), 0) AS smoothed_weight\nFROM\n  biathlon_training.body_battery\nORDER BY date ASC;",
+          "refId": "min_moving_avg",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CAST(DATE_FORMAT(date, '%Y-%m-%d 00:00:00') AS DATE) AS day,\n  ROUND(AVG(high_body_battery - low_body_battery) OVER (ORDER BY date ROWS BETWEEN 7 PRECEDING AND CURRENT ROW), 0) AS smoothed_weight\nFROM\n  biathlon_training.body_battery\nORDER BY date ASC;",
+          "refId": "consumption",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Най-ниска и най-висока стойност на батерията",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "50": {
+                  "index": 0,
+                  "text": "dfd"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "high_body_battery"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-green",
+                  "mode": "shades"
+                }
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "low_body_battery"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "shades"
+                }
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 22
+      },
+      "id": 14,
+      "options": {
+        "combine": false,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        }
+      },
+      "pluginVersion": "11.0.0-preview",
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  high_body_battery\nFROM\n  biathlon_training.body_battery\nWHERE\n  date BETWEEN $__timeFrom() AND $__timeTo() AND \n  high_body_battery IS NOT NULL",
+          "refId": "high_body_battery",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        },
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  low_body_battery\nFROM\n  biathlon_training.body_battery\nWHERE\n  date BETWEEN $__timeFrom() AND $__timeTo() AND \n  low_body_battery IS NOT NULL",
+          "refId": "low_body_battery",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Брой дни с дадена минимална и максимална стойносто на батерията",
+      "type": "histogram"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-orange",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": true,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "2020": {
+                  "index": 0,
+                  "text": "2020"
+                },
+                "2021": {
+                  "index": 1,
+                  "text": "2021"
+                },
+                "2022": {
+                  "index": 2,
+                  "text": "2022"
+                },
+                "2023": {
+                  "index": 3,
+                  "text": "2023"
+                },
+                "2024": {
+                  "index": 4,
+                  "text": "2024"
+                },
+                "2025": {
+                  "index": 5,
+                  "text": "2025"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red"
+              },
+              {
+                "color": "semi-dark-red",
+                "value": -50
+              },
+              {
+                "color": "red",
+                "value": -30
+              },
+              {
+                "color": "dark-orange",
+                "value": -20
+              },
+              {
+                "color": "orange",
+                "value": -10
+              },
+              {
+                "color": "super-light-green",
+                "value": 0
+              },
+              {
+                "color": "light-green",
+                "value": 10
+              },
+              {
+                "color": "green",
+                "value": 20
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 30
+              },
+              {
+                "color": "dark-green",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "avg_resting_hr"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Среден пулс в покой"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 11,
+        "x": 0,
+        "y": 30
+      },
+      "id": 5,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 1,
+        "colorByField": "avg_balance",
+        "fullHighlight": true,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "year",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.0.0-preview",
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  DATE_FORMAT(date, '%Y') AS year,  -- Extract year and month from the date\n  AVG(low_body_battery + high_body_battery - 105) AS avg_balance\nFROM\n  biathlon_training.body_battery\nWHERE\n  date BETWEEN $__timeFrom() AND $__timeTo()\nGROUP BY year\nORDER BY year;",
+          "refId": "B",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "date",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "weight",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "orderBy": {
+              "property": {
+                "type": "string"
+              },
+              "type": "property"
+            }
+          },
+          "table": "weight"
+        }
+      ],
+      "title": "Енергиен баланс по година",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-orange",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "10": {
+                  "index": 9,
+                  "text": "Октомври"
+                },
+                "11": {
+                  "index": 10,
+                  "text": "Ноември"
+                },
+                "12": {
+                  "index": 11,
+                  "text": "Декември"
+                },
+                "01": {
+                  "index": 0,
+                  "text": "Януари"
+                },
+                "02": {
+                  "index": 1,
+                  "text": "Февруари"
+                },
+                "03": {
+                  "index": 2,
+                  "text": "Март"
+                },
+                "04": {
+                  "index": 3,
+                  "text": "Април"
+                },
+                "05": {
+                  "index": 4,
+                  "text": "Май"
+                },
+                "06": {
+                  "index": 5,
+                  "text": "Юни"
+                },
+                "07": {
+                  "index": 6,
+                  "text": "Юли"
+                },
+                "08": {
+                  "index": 7,
+                  "text": "Август"
+                },
+                "09": {
+                  "index": 8,
+                  "text": "Септември"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red"
+              },
+              {
+                "color": "semi-dark-red",
+                "value": -50
+              },
+              {
+                "color": "red",
+                "value": -30
+              },
+              {
+                "color": "dark-orange",
+                "value": -20
+              },
+              {
+                "color": "orange",
+                "value": -10
+              },
+              {
+                "color": "super-light-green",
+                "value": 0
+              },
+              {
+                "color": "light-green",
+                "value": 10
+              },
+              {
+                "color": "green",
+                "value": 20
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 30
+              },
+              {
+                "color": "dark-green",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "balance"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Среден пулс в покой"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 13,
+        "x": 11,
+        "y": 30
+      },
+      "id": 6,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "colorByField": "avg_balance",
+        "fullHighlight": true,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "vertical",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "month",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.0.0-preview",
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  DATE_FORMAT(date, '%m') AS month,\n  AVG(low_body_battery + high_body_battery - 105) AS avg_balance\nFROM\n  biathlon_training.body_battery\nWHERE\n  date BETWEEN $__timeFrom() AND $__timeTo()\nGROUP BY month\nORDER BY month;",
+          "refId": "B",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "date",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "weight",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "orderBy": {
+              "property": {
+                "type": "string"
+              },
+              "type": "property"
+            }
+          },
+          "table": "weight"
+        }
+      ],
+      "title": "Енергиен баланс по месец",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "de14i477ukxdsa"
+      },
+      "description": "Колко дни съм бил с определен енергиен баланс",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red"
+              },
+              {
+                "color": "semi-dark-red",
+                "value": -50
+              },
+              {
+                "color": "red",
+                "value": -30
+              },
+              {
+                "color": "dark-orange",
+                "value": -20
+              },
+              {
+                "color": "orange",
+                "value": -10
+              },
+              {
+                "color": "super-light-green",
+                "value": 0
+              },
+              {
+                "color": "light-green",
+                "value": 10
+              },
+              {
+                "color": "green",
+                "value": 20
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 30
+              },
+              {
+                "color": "dark-green",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "date (count)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "d"
+              },
+              {
+                "id": "displayName",
+                "value": "Период"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 39
+      },
+      "id": 7,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "colorByField": "balance",
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "balance",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.0.0-preview",
+      "targets": [
+        {
+          "dataset": "biathlon_training",
+          "datasource": {
+            "type": "mysql",
+            "uid": "de14i477ukxdsa"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\n  date,\n  ROUND((low_body_battery + high_body_battery - 105) / 10) * 10 AS balance\nFROM\n  biathlon_training.body_battery\nWHERE\n  date BETWEEN $__timeFrom() AND $__timeTo() AND \n  low_body_battery IS NOT NULL AND\n  high_body_battery IS NOT NULL\nORDER BY balance;",
+          "refId": "B",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "date",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "weight",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "orderBy": {
+              "property": {
+                "type": "string"
+              },
+              "type": "property"
+            }
+          },
+          "table": "weight"
+        }
+      ],
+      "title": "Брой дни с даден енергиен баланс",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "balance": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "date": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "int_resting_hr": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "int_weight": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2021-10-06T21:00:00.000Z",
+    "to": "now"
+  },
+  "timeRangeUpdatedDuringEditOrView": false,
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Батерия",
+  "uid": "ae7me0zn0t62oa",
+  "version": 17,
+  "weekStart": "monday"
+}
