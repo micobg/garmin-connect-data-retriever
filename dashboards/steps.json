@@ -24,7 +24,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "",
       "fieldConfig": {
@@ -101,7 +101,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -145,7 +145,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -191,7 +191,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "",
       "fieldConfig": {
@@ -345,7 +345,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -397,7 +397,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -430,7 +430,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "Среден брой стъпки на ден през последата седмица в сравнение със предходните три седмици.",
       "fieldConfig": {
@@ -502,7 +502,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -532,7 +532,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -576,7 +576,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "",
       "fieldConfig": {
@@ -723,7 +723,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -776,7 +776,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "",
       "fieldConfig": {
@@ -947,7 +947,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -1000,7 +1000,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "Колко дни съм бил с определен брой стъпки",
       "fieldConfig": {
@@ -1117,7 +1117,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",

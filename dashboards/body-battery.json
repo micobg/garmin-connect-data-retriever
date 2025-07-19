@@ -24,7 +24,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "fieldConfig": {
         "defaults": {
@@ -121,7 +121,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -150,7 +150,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -183,7 +183,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "Баланс между останалата наличната енергия на края на деня и нереализирания запас до 100% в началото на деня. ",
       "fieldConfig": {
@@ -326,7 +326,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -378,7 +378,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -411,7 +411,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "Среднен енергиен баланс през последните 3 дни в сравнение със предходните две седмици.",
       "fieldConfig": {
@@ -499,7 +499,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -529,7 +529,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -573,7 +573,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "По ден (усреднена стойност за седмица)",
       "fieldConfig": {
@@ -770,7 +770,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -800,7 +800,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -830,7 +830,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -863,7 +863,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "fieldConfig": {
         "defaults": {
@@ -970,7 +970,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -999,7 +999,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -1032,7 +1032,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "",
       "fieldConfig": {
@@ -1192,7 +1192,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -1245,7 +1245,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "",
       "fieldConfig": {
@@ -1429,7 +1429,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -1482,7 +1482,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "Колко дни съм бил с определен енергиен баланс",
       "fieldConfig": {
@@ -1614,7 +1614,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",

@@ -24,7 +24,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "fieldConfig": {
         "defaults": {
@@ -108,7 +108,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "builder",
           "format": "table",
@@ -155,7 +155,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "Средното тегло през последната седмица в сравнение със средното тегло през предходните три седмици.",
       "fieldConfig": {
@@ -241,7 +241,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -285,7 +285,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -343,7 +343,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "fieldConfig": {
         "defaults": {
@@ -491,7 +491,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -543,7 +543,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -576,7 +576,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "",
       "fieldConfig": {
@@ -746,7 +746,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -799,7 +799,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "Колко дни съм бил на определени килограми",
       "fieldConfig": {
@@ -916,7 +916,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
@@ -988,7 +988,7 @@
     {
       "datasource": {
         "type": "mysql",
-        "uid": "de14i477ukxdsa"
+        "uid": "aeqexqshqrxfkb"
       },
       "description": "",
       "fieldConfig": {
@@ -1150,7 +1150,7 @@
           "dataset": "biathlon_training",
           "datasource": {
             "type": "mysql",
-            "uid": "de14i477ukxdsa"
+            "uid": "aeqexqshqrxfkb"
           },
           "editorMode": "code",
           "format": "table",
